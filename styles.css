@@ -34,6 +34,8 @@ html, body{
     grid-area: sidebar;
     padding: 2vh 2vw;
     background-color: antiquewhite;
+    position: fixed;
+    height: 100vh;
 }
 
 /* MAIN-CONTENT */
@@ -41,26 +43,40 @@ html, body{
     grid-area: main-content;
     padding: 2vh 2vw;
 
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    grid-template-areas: 
-    "report report report"
-    ". your-books ."
-    "books-menu books-menu books-menu"
-    "books-menu books-menu books-menu";
+    display: flex;
+    flex-direction: column;
 }
 
 .books-menu{
     grid-area: books-menu;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1vw;
 }
 
 .report{
     grid-area: report;
 }
 
+#remove-book{
+
+}
 
 #your-books{
     grid-area: your-books;
+    display: flex;
+    justify-content: center;
 }
 
+.book-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+
+    background-color: lightblue;
+    padding: 1rem;
+
+    height: fit-content;
+    width: 30vw;
+}
