@@ -75,13 +75,14 @@ function displayBooks(){
         }
         bookCard.appendChild(bookHasRead);
 
+        const removeButton = document.createElement('button');
+        removeButton.textContent = "Remove";
+        removeButton.addEventListener('click', ()=>{
+            myLibrary.splice(myLibrary.indexOf(bookCard), 1);
+            booksMenu.removeChild(bookCard);
+        })
+
+        bookCard.appendChild(removeButton);
         booksMenu.appendChild(bookCard);
     }
 }
-
-// <div class="book-card">
-// <h2>Harry Potter e a Pedra Filosofal</h1>
-// <p>Author: J.K Rowling</p>
-// <p>Pages: 264</p>
-// <p>Read: No</p>
-// </div>
