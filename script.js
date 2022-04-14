@@ -1,6 +1,9 @@
 // DATA
 let myLibrary = [];
 let hasRead = false;
+let totalBooksNumber = 0;
+let totalReadBooks = 0;
+let totalUnreadBooks = 0;
 
 // REFERENCES
 const bookName = document.querySelector('#book-name');
@@ -9,6 +12,9 @@ const pagesNumber = document.querySelector('#pages-number');
 const readCheck = document.querySelector('#read-check');
 const addButton = document.querySelector('.add-button');
 const booksMenu = document.querySelector('.books-menu');
+const totalBooks = document.querySelector('#total-books');
+const unreadBooks = document.querySelector('#unread-books');
+const readBooks = document.querySelector('#read-books');
 
 // CONSTRUCTORS
 function Book(title, author, pagesNumber, hasRead){
@@ -39,6 +45,7 @@ function checkHasRead(){
 
 function addBookToLibrary(){
     myLibrary.push(new Book(bookName.value, authorName.value, pagesNumber.value, hasRead));
+    libraryReport();
 }
 
 function cleanInput(){
@@ -81,8 +88,38 @@ function displayBooks(){
             myLibrary.splice(myLibrary.indexOf(bookCard), 1);
             booksMenu.removeChild(bookCard);
         })
-
         bookCard.appendChild(removeButton);
+
+        const hasReadButton = document.createElement('button');
+        hasReadButton.textContent = "Change read status";
+        hasReadButton.addEventListener('click', ()=>{
+            if(bookHasRead.textContent === "Read: Yes"){
+                bookHasRead.textContent = "Read: No";
+                myLibrary[i].hasRead = false;
+            }else{
+                bookHasRead.textContent = "Read: Yes";
+                myLibrary[i].hasRead = true;
+            }
+        })
+        bookCard.appendChild(hasReadButton);
+
         booksMenu.appendChild(bookCard);
     }
+}
+
+function libraryReport(){
+    for(let book of myLibrary){
+        totalBooksNumber++;
+        if(book.hasRead){
+            totalReadBooks++;
+        }else{
+            totalUnreadBooks++;
+        }
+    }
+}
+
+function libraryReportText(){
+    totalBooks.textContent = "Total Books: " + totalBooksNumber;
+    unreadBooks.textContent = "Unread Books: " + totalUnreadBooks;
+    readBooks.textContent = "Read Books: " + totalReadBooks;
 }
