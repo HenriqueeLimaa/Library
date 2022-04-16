@@ -110,7 +110,7 @@ function displayBooks(){
 // REPORT AREA
 function libraryReport(){
     totalReadBooks = 0;
-    totalReadBooks = 0;
+    totalUnreadBooks = 0;
     totalBooksNumber = 0;
     for(let book of myLibrary){
         if(book.hasRead === true){
