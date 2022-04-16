@@ -78,19 +78,24 @@ function displayBooks(){
         else{
             bookHasRead.textContent = "Read: No"
         }
-        bookCard.appendChild(bookHasRead);
+        bookCard.append(bookHasRead);
+
+        const buttonsRow = document.createElement('div');
+        buttonsRow.classList.add('card-buttons-row');
 
         const removeButton = document.createElement('button');
+        removeButton.classList.add('card-buttons');
         removeButton.textContent = "Remove";
         removeButton.addEventListener('click', ()=>{
             myLibrary.splice(myLibrary.indexOf(bookCard -1), 1);
             booksMenu.removeChild(bookCard);
             libraryReport();
         })
-        bookCard.appendChild(removeButton);
+        buttonsRow.appendChild(removeButton);
 
         const hasReadButton = document.createElement('button');
-        hasReadButton.textContent = "Change read status";
+        hasReadButton.classList.add('card-buttons');
+        hasReadButton.textContent = "Status";
         hasReadButton.addEventListener('click', ()=>{
             if(bookHasRead.textContent === "Read: Yes"){
                 bookHasRead.textContent = "Read: No";
@@ -102,8 +107,8 @@ function displayBooks(){
                 libraryReport();
             }
         })
-        bookCard.appendChild(hasReadButton);
-
+        buttonsRow.appendChild(hasReadButton);
+        bookCard.appendChild(buttonsRow);
         booksMenu.appendChild(bookCard);
     }
 }
