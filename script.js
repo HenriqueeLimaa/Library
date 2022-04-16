@@ -27,32 +27,31 @@ function Book(title, author, pagesNumber, hasRead){
 // EVENT LISTENERS
 addButton.addEventListener('click', ()=>{
     addBookToLibrary();
-    cleanInput();
     displayBooks();
+    libraryReport();
+    libraryReportText();
+    cleanInput();
 });
-
-readCheck.addEventListener('click', ()=>{
-    checkHasRead();
-})
-
 
 // FUNCTIONS
 function checkHasRead(){
-    if(readCheck.checked == true){
+    if(readCheck.checked === true){
         hasRead = true;
+    }
+    else{
+        hasRead = false;
     }
 }
 
 function addBookToLibrary(){
+    checkHasRead();
     myLibrary.push(new Book(bookName.value, authorName.value, pagesNumber.value, hasRead));
-    libraryReport();
 }
 
 function cleanInput(){
     bookName.value = "";
     authorName.value = "";
     pagesNumber.value = "";
-    hasRead = false;
     readCheck.checked = false;
 }
 
@@ -107,15 +106,20 @@ function displayBooks(){
     }
 }
 
+
+// REPORT AREA
 function libraryReport(){
+    totalReadBooks = 0;
+    totalReadBooks = 0;
+    totalBooksNumber = 0;
     for(let book of myLibrary){
-        totalBooksNumber++;
-        if(book.hasRead){
-            totalReadBooks++;
+        if(book.hasRead === true){
+            totalReadBooks +=1;
         }else{
-            totalUnreadBooks++;
+            totalUnreadBooks+=1;
         }
     }
+    totalBooksNumber = totalReadBooks + totalUnreadBooks;
 }
 
 function libraryReportText(){
