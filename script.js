@@ -83,7 +83,7 @@ function displayBooks(){
         const removeButton = document.createElement('button');
         removeButton.textContent = "Remove";
         removeButton.addEventListener('click', ()=>{
-            myLibrary.splice(myLibrary.indexOf(bookCard), 1);
+            myLibrary.splice(myLibrary.indexOf(bookCard -1), 1);
             booksMenu.removeChild(bookCard);
             libraryReport();
         })
