@@ -7,6 +7,7 @@ html, body{
     padding: 0;
     margin: 0;
     font-family: montserrat;
+    background-color: #e5e7eb;
 }
 
 /* BODY */
@@ -23,6 +24,11 @@ html, body{
 .add-button{
     width: 15vw;
     height: 7vh;
+    border: 2px solid #FFF;
+    border-radius: 1rem;
+    color: #FFF;
+    background-color: #1F2937;
+    font-size: large;
 }
 
 .book-form{
@@ -39,9 +45,28 @@ html, body{
 .sidebar{
     grid-area: sidebar;
     padding: 2vh 2vw;
-    background-color: antiquewhite;
+    background-color: #1F2937;
     position: fixed;
     height: 100vh;
+}
+
+.text-input{
+    border-radius: 1rem;
+    font-size: large;
+    padding: 0.5rem;
+}
+.text-input:focus{
+    outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.text{
+    color: #FFF;
 }
 
 /* MAIN-CONTENT */
@@ -56,16 +81,15 @@ html, body{
 .books-menu{
     grid-area: books-menu;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 1vw;
+    padding-bottom: 2rem;
 }
 
 .report{
     grid-area: report;
-}
-
-#remove-book{
-
+    padding-left: 1rem;
 }
 
 #your-books{
@@ -80,9 +104,32 @@ html, body{
     align-items: center;
     flex-wrap: wrap;
 
-    background-color: lightblue;
-    padding: 1rem;
+    background-color: #fff;
 
+    padding: 1rem;
     height: fit-content;
     width: 30vw;
+
+    border: 5px solid #1F2937;
+    border-radius: 1rem;
+
+    font-size: large;
+}
+
+.card-buttons{
+    height: 3rem;
+    width: 10rem;
+
+    background-color: #1F2937;
+    color: #FFF;
+
+    font-size: large;
+
+    border: none;
+    border-radius: 1rem;
+}
+
+.card-buttons-row{
+    display: flex;
+    gap: 3vw;
 }
