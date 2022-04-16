@@ -87,7 +87,7 @@ function displayBooks(){
         removeButton.classList.add('card-buttons');
         removeButton.textContent = "Remove";
         removeButton.addEventListener('click', ()=>{
-            myLibrary.splice(myLibrary.indexOf(bookCard -1), 1);
+            myLibrary.splice(bookCard, 1);
             booksMenu.removeChild(bookCard);
             libraryReport();
         })
