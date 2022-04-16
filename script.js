@@ -95,9 +95,11 @@ function displayBooks(){
             if(bookHasRead.textContent === "Read: Yes"){
                 bookHasRead.textContent = "Read: No";
                 myLibrary[i].hasRead = false;
+                libraryReport();
             }else{
                 bookHasRead.textContent = "Read: Yes";
                 myLibrary[i].hasRead = true;
+                libraryReport();
             }
         })
         bookCard.appendChild(hasReadButton);
