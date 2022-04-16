@@ -29,7 +29,6 @@ addButton.addEventListener('click', ()=>{
     addBookToLibrary();
     displayBooks();
     libraryReport();
-    libraryReportText();
     cleanInput();
 });
 
@@ -86,6 +85,7 @@ function displayBooks(){
         removeButton.addEventListener('click', ()=>{
             myLibrary.splice(myLibrary.indexOf(bookCard), 1);
             booksMenu.removeChild(bookCard);
+            libraryReport();
         })
         bookCard.appendChild(removeButton);
 
@@ -120,6 +120,7 @@ function libraryReport(){
         }
     }
     totalBooksNumber = totalReadBooks + totalUnreadBooks;
+    libraryReportText();
 }
 
 function libraryReportText(){
