@@ -94,15 +94,22 @@ function displayBooks(){
         buttonsRow.appendChild(removeButton);
 
         const hasReadButton = document.createElement('button');
+        if(hasRead === true){
+            hasReadButton.style.backgroundColor = 'green';
+        }else{
+            hasReadButton.style.backgroundColor = 'red';
+        }
         hasReadButton.classList.add('card-buttons');
-        hasReadButton.textContent = "Status";
+        hasReadButton.textContent = "Read";
         hasReadButton.addEventListener('click', ()=>{
             if(bookHasRead.textContent === "Read: Yes"){
                 bookHasRead.textContent = "Read: No";
+                hasReadButton.style.backgroundColor = 'red';
                 myLibrary[i].hasRead = false;
                 libraryReport();
             }else{
                 bookHasRead.textContent = "Read: Yes";
+                hasReadButton.style.backgroundColor = 'green';
                 myLibrary[i].hasRead = true;
                 libraryReport();
             }

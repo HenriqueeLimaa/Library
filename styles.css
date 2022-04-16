@@ -110,8 +110,8 @@ input::-webkit-inner-spin-button {
     height: fit-content;
     width: 30vw;
 
-    border: 5px solid #1F2937;
     border-radius: 1rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
     font-size: large;
 }
